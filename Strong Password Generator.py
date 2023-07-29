@@ -1,22 +1,29 @@
 import random
 import string
-import secrets
-list_upper = list(string.ascii_uppercase)
-list_lower = list(string.ascii_lowercase)
-list_number = list(string.digits)
-list_specchar = list(string.punctuation)
 
-random.shuffle(list_upper)
-random.shuffle(list_lower)
-random.shuffle(list_number)
-random.shuffle(list_specchar)
-len_chars = int(input("Enter The number of length of No. At least 6 chars : "))
-password = []
-if(len_chars >= 6):
-    for i in range(len_chars):
-        cryp = secrets.choice(list_upper + list_lower + list_number + list_specchar)
-        password.append(cryp)
-else:
-    print("you need at least a 6 characters")
-password = "".join(password[0:])
+"""
+This code generates a random string of a specified length.
+
+The user is prompted to enter the length of the random string.
+The code then generates a random string of the specified length using a combination of uppercase letters, lowercase letters, punctuation marks, and numbers.
+The random string is then printed to the console.
+
+Usage:
+
+python random_string.py
+
+This will prompt you to enter the length of the random string.
+The code will then generate a random string of the specified length and print it to the console.
+
+"""
+
+upper = string.ascii_uppercase
+lower = string.ascii_lowercase
+punc = string.punctuation
+num = string.digits
+
+length = int(input("Enter The Length: "))
+all_letter = upper + lower + punc + num
+
+password = "".join(random.sample(all_letter, length))
 print(password)
